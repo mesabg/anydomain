@@ -3,7 +3,15 @@
   "version": "1.0.0",
   "description": "Access to any domain with CORS enable, scripts and styles injection\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[C\u001b[ and \u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[scripts and styles injection",
   "main": "src/server.js",
-  "scripts": {},
+  "scripts": {
+    "start": "nodemon --exec babel-node -- src/server.js",
+    "lint": "eslint src/",
+    "build": "babel src -d dist",
+    "heroku": "git push heroku master",
+    "mongo": "mongod --port=5500",
+    "preprod": "npm run build",
+    "prod": "node dist/server.js"
+  },
   "bugs": {
     "url": "https://github.com/mesabg/anydomain.git/issues"
   },
@@ -41,5 +49,30 @@
     "eslint-config-zavatta": "^6.0.1",
     "eslint-plugin-import": "^2.8.0",
     "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.14.10"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-0"
+    ],
+    "plugins": [
+      "transform-runtime",
+      [
+        "inline-json",
+        {
+          "matchPattern": "config"
+        }
+      ]
+    ]
+  },
+  "eslintConfig": {
+    "extends": "zavatta",
+    "rules": {
+      "no-console": 0,
+      "callback-return": 0
+    }
   }
 }
