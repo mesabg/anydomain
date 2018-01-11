@@ -20,6 +20,11 @@ router.use((request, response, next) => {
  */
 router.get('/', async (request, response, next) => {
     let url = request.query.url;
+    let script = request.query.script === null || request.query.script === undefined ? '' : request.query.script;
+    let style = request.query.style === null || request.query.style === undefined ? '' : request.query.style;
+
+    console.log("script is :: ", script);
+    console.log("style is :: ", style);
 
     //-- Check if url is not properly setup
     if (url === null || url === undefined)
@@ -33,6 +38,8 @@ router.get('/', async (request, response, next) => {
             url: url,
             method: 'get',
         })).data;
+        web.replace(`</head>`, `<style>${style}</style></head>`);
+        web.replace(`</body>`, `<script>${script}</script></body>`);
         return response.status(200).send(web);
     } catch (reason) {
         console.log(`An error ocurred while visiting ${url}`);
@@ -50,6 +57,9 @@ router.post('/', async (request, response, next) => {
     let url = request.body.url;
     let script = request.body.script === null || request.body.script === undefined ? '' : request.body.script;
     let style = request.body.style === null || request.body.style === undefined ? '' : request.body.style;
+
+    console.log("script is :: ", script);
+    console.log("style is :: ", style);
 
     //-- Check if url is not properly setup
     if (url === null || url === undefined)
