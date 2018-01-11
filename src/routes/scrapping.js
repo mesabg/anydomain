@@ -33,6 +33,7 @@ router.get('/', async (request, response, next) => {
             url: url,
             method: 'get',
         });
+        console.log("Web is :: ", web);
         return response.status(200).send(web);
     } catch (reason) {
         console.log(`An error ocurred while visiting ${url}`);
