@@ -29,11 +29,11 @@ router.get('/', async (request, response, next) => {
     
     //-- Request
     try {
-        let web = await axios.request({
+        let web = (await axios.request({
             url: url,
             method: 'get',
-        });
-        return response.status(200).send(web.data);
+        })).data;
+        return response.status(200).send(web);
     } catch (reason) {
         console.log(`An error ocurred while visiting ${url}`);
         console.log("Details :: ", reason);
@@ -57,13 +57,13 @@ router.post('/', async (request, response, next) => {
     
     //-- Request
     try {
-        let web = await axios.request({
+        let web = (await axios.request({
             url: url,
             method: 'get',
-        });
+        })).data;
         web.replace(`</head>`, `<style>${style}</style></head>`);
         web.replace(`</body>`, `<script>${script}</script></body>`);
-        return response.status(200).send(web.data);
+        return response.status(200).send(web);
     } catch (reason) {
         console.log(`An error ocurred while visiting ${url}`);
         console.log("Details :: ", reason);
