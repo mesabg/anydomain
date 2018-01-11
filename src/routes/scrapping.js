@@ -25,13 +25,15 @@ router.get('/', async (request, response, next) => {
     if (url === null || url === undefined)
         return response.status(200).send('Nothing to query');
     
+    console.log("Accesing URL :: ", url);
+    
     //-- Request
     try {
-        let response = await axios.request({
+        let web = await axios.request({
             url: url,
             method: 'get',
         });
-        return response.status(200).send(response);
+        return response.status(200).send(web);
     } catch (reason) {
         console.log(`An error ocurred while visiting ${url}`);
         console.log("Details :: ", reason);
@@ -55,13 +57,13 @@ router.post('/', async (request, response, next) => {
     
     //-- Request
     try {
-        let response = await axios.request({
+        let web = await axios.request({
             url: url,
             method: 'get',
         });
-        response.replace(`</head>`, `<style>${style}</style></head>`);
-        response.replace(`</body>`, `<script>${script}</script></body>`);
-        return response.status(200).send(response);
+        web.replace(`</head>`, `<style>${style}</style></head>`);
+        web.replace(`</body>`, `<script>${script}</script></body>`);
+        return response.status(200).send(web);
     } catch (reason) {
         console.log(`An error ocurred while visiting ${url}`);
         console.log("Details :: ", reason);
