@@ -1,0 +1,7 @@
+{
+    "name": "anydomain",
+    "description": "Any Domain",
+    "repository": "https://github.com/mesabg/anydomain.git",
+    "keywords": ["CORS", "WebScrapping", "AnyDomain"],
+    "image": "heroku/nodejs"
+}

@@ -1,0 +1,45 @@
+{
+  "name": "anydomain",
+  "version": "1.0.0",
+  "description": "Access to any domain with CORS enable, scripts and styles injection\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[C\u001b[ and \u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[scripts and styles injection",
+  "main": "src/server.js",
+  "scripts": {},
+  "bugs": {
+    "url": "https://github.com/mesabg/anydomain.git/issues"
+  },
+  "homepage": "https://github.com/mesabg/anydomain.git#readme",
+  "engines": {
+    "node": "9.3.0",
+    "npm": "5.6.0"
+  },
+  "keywords": [
+    "CORS",
+    "WebScrapping",
+    "AnyDomain"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mesabg/anydomain.git"
+  },
+  "author": "Moisés Berenguer",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.2.1",
+    "babel-plugin-inline-json": "^1.2.2",
+    "babel-plugin-inline-json-import": "^0.2.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "bluebird": "^3.5.1",
+    "body-parser": "^1.18.2",
+    "dotenv": "^4.0.0",
+    "eslint": "^4.15.0",
+    "eslint-config-zavatta": "^6.0.1",
+    "eslint-plugin-import": "^2.8.0",
+    "express": "^4.16.2"
+  }
+}
