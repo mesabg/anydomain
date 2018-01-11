@@ -25,7 +25,7 @@ router.get('/', async (request, response, next) => {
 
     //-- Check if url is not properly setup
     if (url === null || url === undefined)
-    return response.status(200).send('Nothing to query');
+        return response.status(200).send('Nothing to query');
     
     console.log("Accesing URL :: ", url);
     console.log("Style is :: ", style);
@@ -37,8 +37,9 @@ router.get('/', async (request, response, next) => {
             url: url,
             method: 'get',
         })).data;
-        web.replace(`</head>`, `<style>${style}</style></head>`);
-        web.replace(`</body>`, `<script>${script}</script></body>`);
+        web.replace('<head>', '<head> <base href="' + url + '"/>');
+        web.replace('</head>', '<style type="text/css"> header { display:none !important; } </style></head>');
+        web.replace('</body>', '<script type="text/javascript"> alert("United we are"); </script></body>');
         return response.status(200).send(web);
     } catch (reason) {
         console.log(`An error ocurred while visiting ${url}`);
