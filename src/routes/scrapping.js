@@ -23,14 +23,13 @@ router.get('/', async (request, response, next) => {
     let script = request.query.script === null || request.query.script === undefined ? '' : request.query.script;
     let style = request.query.style === null || request.query.style === undefined ? '' : request.query.style;
 
-    console.log("script is :: ", script);
-    console.log("style is :: ", style);
-
     //-- Check if url is not properly setup
     if (url === null || url === undefined)
-        return response.status(200).send('Nothing to query');
+    return response.status(200).send('Nothing to query');
     
     console.log("Accesing URL :: ", url);
+    console.log("Style is :: ", style);
+    console.log("Script is :: ", script);
     
     //-- Request
     try {
