@@ -33,8 +33,7 @@ router.get('/', async (request, response, next) => {
             url: url,
             method: 'get',
         });
-        console.log("Web is :: ", web);
-        return response.status(200).send(web);
+        return response.status(200).send(web.data);
     } catch (reason) {
         console.log(`An error ocurred while visiting ${url}`);
         console.log("Details :: ", reason);
@@ -64,7 +63,7 @@ router.post('/', async (request, response, next) => {
         });
         web.replace(`</head>`, `<style>${style}</style></head>`);
         web.replace(`</body>`, `<script>${script}</script></body>`);
-        return response.status(200).send(web);
+        return response.status(200).send(web.data);
     } catch (reason) {
         console.log(`An error ocurred while visiting ${url}`);
         console.log("Details :: ", reason);
